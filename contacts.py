@@ -23,10 +23,10 @@ def read_contacts(file):
 		# remember that match returns None if it doesn't match!
 		if match:
 			####
-			# Your code goes here! (replace what's below)
+			##
 			####
 			person = match.groups()
-			# c_dict = match.groupdict()
+			c_dict = match.groupdict()
 			contacts.append(person)
 
 	return contacts

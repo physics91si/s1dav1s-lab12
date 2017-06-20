@@ -3,3 +3,14 @@ Record your regexes in this file.
 Example:
 this regex matches a calendar year (1990, 2001, etc.)
 [12]?[0-9]{3}
+
+1. This regex matches an email address (i.e. someone@somewhere.com)
+/\w+@\w+.\w+/g
+2. This regex matches a URL (http://www.website.com/page or similar)
+/http:[/][/]\w+.\w+[/.\w\d\s]*\s/g
+3. This regex matches a name listed as Lastname, Firstname with the first letter of each capitalized
+/[A-Z][a-z]*,[ ][A-Z][a-z]*/g
+4. This regex matches a phone number. (Should have area code and be correct length)
+[+1]*[-(]*[\d]{3}[)-]*[\d]{3}[-][\d]{4}
+5. This regex matches a data in MM/DD/YY format (be careful about what values are permitted!)
+/(0[1-9]|1[0-2])[/](0[1-9]|1[0-9]|2[0-4])[/]([0-9]{2})
