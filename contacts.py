@@ -1,4 +1,4 @@
-#!/usr/bin/python3.5
+#!/usr/bin/python3
 
 # Your Name
 # Physics 91SI Spring 2015
@@ -15,7 +15,7 @@ def read_contacts(file):
 	"""Reads contacts from the given file object, returning them as a list."""
 	# Sample regex: replace this with your own
 	# don't forget the raw string r prefix!
-	regex = re.compile(r"(\w+),\s(\w+).+")
+	regex = re.compile(r"(([A-Z][a-z]*,[ ][A-Z][a-z]*) ([(]\w+@\w+.\w+[)]) (\d{3}-\d{4}))")
 	contacts = []	# Start an empty list
 
 	for line in file:
@@ -23,12 +23,12 @@ def read_contacts(file):
 		# remember that match returns None if it doesn't match!
 		if match:
 			####
-			##
+			# Your code goes here! (replace what's below)
 			####
 			person = match.groups()
-			c_dict = match.groupdict()
+			# c_dict = match.groupdict()
 			contacts.append(person)
-
+	contacts =sorted(contacts,key=lambda x:x[2])
 	return contacts
 
 
@@ -41,18 +41,19 @@ def print_contacts(contacts):
 		####
 		# Your code goes here! (replace what's below)
 		####
-		last, first = person[0:2]
-
+        e = person[3]
+        fn= person[2]
+		ln = person[1]
+		e1 = e[1:-1]
 		# This is Python's "string interpolation"
 		# for C users, it's very similar to printf
-		print ("%s %s" % (first, last))
+		print ("%s %s" % (fn, ln) + ": " + (e))
 
 
 def main():
 	"""Read in contacts from a file, and print them to the terminal.
 	Contacts are printed one per line, in the format:
 	John Doe: username@domain.com
-
 	Usage: python contacts.py filename"""
 
 	filename = sys.argv[1]
